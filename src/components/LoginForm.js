@@ -13,6 +13,7 @@ class LoginForm extends Component {
             label='Email'
             value={this.state.email}
             onChangeText={email => this.setState({ email })}
+            security={false}
           />
         </CardSection>
 
@@ -22,6 +23,7 @@ class LoginForm extends Component {
             label='Password'
             value={this.state.password}
             onChangeText={password => this.setState({ password })}
+            security={true}
           />
         </CardSection>
 
