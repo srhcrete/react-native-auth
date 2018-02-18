@@ -16,7 +16,7 @@ class LoginForm extends Component {
       .catch(() => {
         firebase.auth().createUserWithEmailAndPassword(email, password)
           .then(this.onLoginSuccess.bind(this))
-          .catch(this.onLoginFail.bind(this)) 
+          .catch(this.onLoginFail.bind(this))
       });
   }
 
@@ -54,7 +54,6 @@ class LoginForm extends Component {
             label='Email'
             value={this.state.email}
             onChangeText={email => this.setState({ email })}
-            security={false}
           />
         </CardSection>
 
@@ -64,7 +63,7 @@ class LoginForm extends Component {
             label='Password'
             value={this.state.password}
             onChangeText={password => this.setState({ password })}
-            security={true}
+            secureTextEntry
           />
         </CardSection>
 
