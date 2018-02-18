@@ -29,11 +29,19 @@ class App extends Component {
   renderContent() {
     switch (this.state.loggedIn) {
       case true:
-        return <Button>Log Out</Button>;
+        return (
+          <Button onPress={() => firebase.auth().signOut()}>
+            Log Out
+          </Button>
+        );
       case false:
-        return <LoginForm />;
+        return <LoginForm />
       default:
-        return <View style={styles.alignSpinnerStyle}><Spinner size='large' /></View>;
+        return (
+          <View>
+            <Spinner size='large' />
+          </View>
+        );
     }
 
     if (this.state.loggedIn) {
@@ -55,11 +63,5 @@ class App extends Component {
     );
   }
 }
-
-const styles = {
-  alignSpinnerStyle: {
-    margin: 40,
-  }
-};
 
 export default App;
