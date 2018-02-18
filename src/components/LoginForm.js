@@ -9,7 +9,9 @@ class LoginForm extends Component {
   onButtonPress() {
     const { email, password } = this.state;
 
-    firebase.auth().signInWithEmailAndPassoword(email, password)
+    this.setState({ error: '' });
+
+    firebase.auth().signInWithEmailAndPassword(email, password)
       .catch(() => {
         firebase.auth().createUserWithEmailAndPassword(email, password)
           .catch(() => {
@@ -46,7 +48,7 @@ class LoginForm extends Component {
         </Text>
 
         <CardSection>
-          <Button onPress={this.onButtonPress.bind{this}}>
+          <Button onPress={this.onButtonPress.bind(this)}>
             Login In
           </Button>
         </CardSection>
@@ -58,7 +60,7 @@ class LoginForm extends Component {
 const styles = {
   errorTextStyle: {
     fontSize: 20,
-    color: red,
+    color: 'red',
     alignSelf: 'center'
   }
 }
